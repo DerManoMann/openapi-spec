@@ -10,7 +10,6 @@ use Radebatz\OpenApi\Spec\Serializer\SerializerResolver;
 use ReflectionClass;
 use SplFileInfo;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * OpenApi spec generator.
@@ -39,12 +38,12 @@ class Generator
      *                          * \SplFileInfo
      *                          * \Symfony\Component\Finder\Finder
      */
-    public function generate(iterable $sources)
+    public function generate(iterable $sources): mixed
     {
         $attributes = $this->scanSources($sources);
 
         $specTree = $this->merger->merge($attributes);
-        /* todo: validate
+        /* todo: validate lots...
          * require OpenAPIDefinition
          * require paths not empty
          * duplicate response status
@@ -52,9 +51,7 @@ class Generator
          */
         $spec = $this->defaultSerializer->serialize($specTree, new SerializerResolver());
 
-        // export as Json/Yaml
-        echo '---' . PHP_EOL;
-        echo Yaml::dump($spec, 10);
+        return $spec;
     }
 
     /**

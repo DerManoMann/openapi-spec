@@ -33,8 +33,8 @@ class Merger
             'openapi' => '3.0.2',
             'paths' => [],
             'components' => [
-                'securitySchemes' => [],
                 'schemas' => [],
+                'securitySchemes' => [],
             ],
         ];
 

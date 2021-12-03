@@ -16,8 +16,10 @@ class GeneratorTest extends TestCase
         $classloader->addPsr4('OpenApi\\', $exampleDir);
         $classloader->register();
 
-        (new Generator())
+        $spec = (new Generator())
             ->generate([$exampleDir])
         ;
+
+        $this->assertNotNull($spec);
     }
 }
