@@ -28,7 +28,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          # coverage: pcov
+          coverage: pcov
 
       - name: Composer install
         uses: ramsey/composer-install@v1
@@ -36,4 +36,4 @@ jobs:
           dependency-versions: ${{ matrix.dependencies }}
 
       - name: PHPUnit Tests
-        run: bin/phpunit --configuration phpunit.xml.dist --coverage-text
+        run: vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text
