@@ -1,0 +1,52 @@
+{
+    "name": "radebatz/openapi-spec",
+    "description": "Create OpenAPI specs from PHP Attributes.",
+    "license": [
+        "MIT"
+    ],
+    "homepage": "http://radebatz.net/mano/",
+    "authors": [
+        {
+            "name": "Martin Rademacher",
+            "email": "mano@radebatz.org"
+        }
+    ],
+    "prefer-stable": true,
+    "scripts": {
+        "cs": "php-cs-fixer fix --allow-risky=yes",
+        "lint": "@cs --dry-run",
+        "test": [
+            "phpunit",
+            "@lint"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Radebatz\\OpenApi\\Spec\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Radebatz\\OpenApi\\Spec\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "djairhogeuens/openapi-php": "dev-main",
+        "psr/log": "^1.1|^2.0|^3.0",
+        "symfony/finder": "^5.3|^6.0",
+        "symfony/yaml": "^5.3|^6.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.3",
+        "phpunit/phpunit": "^9.5"
+    }
+}
