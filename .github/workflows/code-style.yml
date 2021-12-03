@@ -26,3 +26,5 @@ jobs:
 
       - name: Static Code Analysis
         run: composer lint
+        env:
+          PHP_CS_FIXER_IGNORE_ENV: 1
