@@ -9,7 +9,6 @@ class ReturnType implements OpenApiAttributeInterface
 {
     public function __construct(public ReflectionNamedType $type)
     {
-
     }
 
     public function ref(): string

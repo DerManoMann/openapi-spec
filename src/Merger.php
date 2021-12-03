@@ -38,8 +38,8 @@ class Merger
             ],
         ];
 
-        $all = fn(array $attributes, string $class) => array_filter($attributes, fn($attribute) => $attribute instanceof $class);
-        $first = fn(array $attributes, string $class) => ($match = $all($attributes, $class)) ? array_pop($match) : null;
+        $all = fn (array $attributes, string $class) => array_filter($attributes, fn ($attribute) => $attribute instanceof $class);
+        $first = fn (array $attributes, string $class) => ($match = $all($attributes, $class)) ? array_pop($match) : null;
 
         foreach ($attributes as $fqdn => $fqdnDetails) {
             foreach ($fqdnDetails as $type => $typeAttributes) {
@@ -69,12 +69,12 @@ class Merger
 
     protected function mergePath(Path $path, array $attributes): array
     {
-        $all = fn(array $attributes, string $class) => array_filter($attributes, fn($attribute) => $attribute instanceof $class);
-        $first = fn(array $attributes, string $class) => ($match = $all($attributes, $class)) ? array_pop($match) : null;
+        $all = fn (array $attributes, string $class) => array_filter($attributes, fn ($attribute) => $attribute instanceof $class);
+        $first = fn (array $attributes, string $class) => ($match = $all($attributes, $class)) ? array_pop($match) : null;
 
         $responses = $all($attributes, ApiResponse::class);
         if ($responses && ($returnType = $first($attributes, ReturnType::class))) {
-            array_walk($responses, function(ApiResponse $response) use ($returnType) {
+            array_walk($responses, function (ApiResponse $response) use ($returnType) {
                 foreach ($response->content as $content) {
                     $content->schema ??= new Schema();
                     $content->schema->ref = $returnType->ref();

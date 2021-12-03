@@ -33,11 +33,11 @@ class Generator
     /**
      * Generate OpenAPI spec by scanning the given source files.
      *
-     * @param iterable $sources       PHP source files to scan.
-     *                                Supported sources:
-     *                                * string - file / directory name
-     *                                * \SplFileInfo
-     *                                * \Symfony\Component\Finder\Finder
+     * @param iterable $sources PHP source files to scan.
+     *                          Supported sources:
+     *                          * string - file / directory name
+     *                          * \SplFileInfo
+     *                          * \Symfony\Component\Finder\Finder
      */
     public function generate(iterable $sources)
     {
@@ -55,7 +55,6 @@ class Generator
         // export as Json/Yaml
         echo '---' . PHP_EOL;
         echo Yaml::dump($spec, 10);
-
     }
 
     /**
@@ -71,7 +70,7 @@ class Generator
             } else {
                 $resolvedSource = $source instanceof SplFileInfo ? $source->getPathname() : realpath($source);
                 if (!$resolvedSource) {
-                    $this->logger->warning(sprintf('Skipping invalid source: %s', (string)$source));
+                    $this->logger->warning(sprintf('Skipping invalid source: %s', (string) $source));
                     continue;
                 }
                 if (is_dir($resolvedSource)) {

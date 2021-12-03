@@ -12,7 +12,6 @@ class ParameterType implements OpenApiAttributeInterface
 
     public function __construct(public string $name, public ReflectionNamedType $type)
     {
-
     }
 
     public function ref(): string

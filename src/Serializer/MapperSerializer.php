@@ -13,8 +13,7 @@ class MapperSerializer extends DefaultSerializer
         parent::__construct($logger);
     }
 
-
-    public function serialize (OpenApiAttributeInterface|array|int|string|bool|null $value, ?SerializerResolver $serializerResolver): mixed
+    public function serialize(OpenApiAttributeInterface|array|int|string|bool|null $value, ?SerializerResolver $serializerResolver): mixed
     {
         assert(is_array($value));
 

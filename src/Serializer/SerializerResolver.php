@@ -5,7 +5,6 @@ namespace Radebatz\OpenApi\Spec\Serializer;
 use OpenApi\Attributes\Headers\Header;
 use OpenApi\Attributes\Media\Content;
 use OpenApi\Attributes\Media\Schema;
-use OpenApi\Attributes\OpenApiAttributeInterface;
 use OpenApi\Attributes\Parameter;
 use OpenApi\Attributes\Responses\ApiResponse;
 use OpenApi\Attributes\Security\SecurityScheme;

@@ -8,8 +8,6 @@ use OpenApi\Attributes\Parameter;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Radebatz\OpenApi\Spec\Attributes\ParameterType;
-use Radebatz\OpenApi\Spec\Attributes\NamedParameter;
-use Radebatz\OpenApi\Spec\Attributes\ResponseType;
 use Radebatz\OpenApi\Spec\Attributes\ReturnType;
 use ReflectionMethod;
 use ReflectionNamedType;
@@ -41,7 +39,7 @@ class Collector
             $attributes = $this->collectProperty($reflector, $attributes);
         }
 
-        return array_filter($attributes, fn($attribute) => $attribute instanceof OpenApiAttributeInterface);
+        return array_filter($attributes, fn ($attribute) => $attribute instanceof OpenApiAttributeInterface);
     }
 
     protected function collectMethod(ReflectionMethod $reflectionMethod, array $attributes)

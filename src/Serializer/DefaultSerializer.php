@@ -24,7 +24,8 @@ class DefaultSerializer implements SerializerInterface
             foreach ($value as $vname => $vvalue) {
                 $serializer = $vvalue instanceof SerializableInterface
                     ? $vvalue->serializer()
-                    : ($vvalue instanceof OpenApiAttributeInterface && $serializerResolver
+                    : (
+                        $vvalue instanceof OpenApiAttributeInterface && $serializerResolver
                         ? $serializerResolver->resolve(get_class($vvalue))
                         : $this
                     );

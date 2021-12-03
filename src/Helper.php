@@ -7,6 +7,7 @@ trait Helper
     protected function fqdn2name(string $fqdn)
     {
         $token = explode('\\', $fqdn);
+
         return array_pop($token);
     }
 

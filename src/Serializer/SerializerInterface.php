@@ -6,7 +6,5 @@ use OpenApi\Attributes\OpenApiAttributeInterface;
 
 interface SerializerInterface
 {
-
     public function serialize(OpenApiAttributeInterface|array|int|string|bool|null $value, ?SerializerResolver $serializerResolver): mixed;
-
 }
